@@ -17,7 +17,7 @@ import {
   GraphQLError,
   VariableDefinitionNode,
 } from 'graphql';
-import { GraphQLSchemaValidationError } from 'apollo-graphql';
+// import { GraphQLSchemaValidationError } from 'apollo-graphql';
 import { composeAndValidate, ServiceDefinition } from '@apollo/federation';
 import loglevel, { Logger } from 'loglevel';
 import loglevelDebug from 'loglevel-debug';
@@ -380,7 +380,8 @@ export class ApolloGateway implements GraphQLService {
           }),
         });
       }
-      throw new GraphQLSchemaValidationError(errors);
+      console.warn(errors)
+      // throw new GraphQLSchemaValidationError(errors);
     }
 
     this.createServices(serviceList);
